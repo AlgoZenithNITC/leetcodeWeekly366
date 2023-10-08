@@ -38,12 +38,41 @@ class Solution:
 
 <details>
   <summary>C++</summary>
+  
+  ```
+      class Solution {
+        public:
+            int differenceOfSums(int n, int m) {
+                int s1=0,s2=0;
+                for(int i=1;i<=n;i++)
+                {
+                    if(i%m==0) s2+=i;
+                    else s1+=i;
+                }
+                return s1-s2;
+            }
+    };
+  ```
+
 </details>
 
 
 <details>
   <summary>JAVA</summary>
   
+  ```
+    public class Solution {
+        public int differenceOfSums(int n, int m) {
+            int s1=0,s2=0;
+            for(int i=1;i<=n;i++)
+            {
+                if(i%m==0) s2+=i;
+                else s1+=i;
+            }
+            return s1-s2;
+        }
+    }
+  ```
 </details>
 
 
@@ -51,6 +80,7 @@ class Solution:
 
 <details>
     <summary>Python Code</summary>
+  
   ```
   class Solution:
     def minProcessingTime(self, pT: List[int], tasks: List[int]) -> int:
@@ -80,13 +110,60 @@ class Solution:
 
 <details>
   <summary>C++</summary>
+  
+  ```
+    class Solution {
+      public:
+          int minProcessingTime(vector<int>& p, vector<int>& tasks) {
+              int ans=0;
+              sort(tasks.begin(),tasks.end());
+              sort(p.begin(),p.end());
+              int n=tasks.size();
+              int cnt=n/4 - 1;
+              for(int i=0;i<n;i+=4)
+              {
+                  int res=0;
+                  for(int j=0;j<4;j++)
+                  {
+                      res=max(res,tasks[j+i]+p[cnt]);
+                  }
+                  cnt--;
+                  ans=max(ans,res);
+              }
+              return ans;
+          }
+      };
+  ```
 </details>
 
 
 <details>
   <summary>JAVA</summary>
   
+  ```
+        public class Solution {
+          public int minProcessingTime(int[] p, int[] tasks) {
+              int ans=0;
+              Arrays.sort(tasks);
+              Arrays.sort(p);
+              int n=tasks.length;
+              int cnt=n/4 - 1;
+              for(int i=0;i<n;i+=4)
+              {
+                  int res=0;
+                  for(int j=0;j<4;j++)
+                  {
+                      res=Math.max(res,tasks[j+i]+p[cnt]);
+                  }
+                  cnt--;
+                  ans=Math.max(ans,res);
+              }
+              return ans;
+          }
+      }
+  ```
 </details>
+
 
 
 # Third Question
